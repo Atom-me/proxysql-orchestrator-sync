@@ -1,0 +1,26 @@
+server:
+  port: 9527
+orchestrator:
+  servers:
+    - url: http://1.1.1.1:3000/api/
+      username: orchestrator-username1
+      password: orchestrator-password1
+    - url: http://2.2.2.2:3000/api/
+      username: orchestrator-username2
+      password: orchestrator-password2
+  pollInterval: 10
+  clusterAlias: testcluster
+
+proxysql:
+  servers:
+    - hostname: 1.1.1.1
+      username: atom
+      password: atompassword
+      port: 6032
+    - hostname: 2.2.2.2
+      username: atom
+      password: atompassword
+      port: 6032
+logging:
+  level:
+    com.atom.orchestrator: debug
