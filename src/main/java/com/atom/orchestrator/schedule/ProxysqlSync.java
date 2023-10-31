@@ -26,12 +26,12 @@ public class ProxysqlSync {
     /**
      * Periodic ProxySql update
      */
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRateString = "${orchestrator.pollInterval}")
     public void sync() {
         List<OrchestratorServer> orchestratorServers = orchestratorConfig.getServers();
         Random random = new Random();
         OrchestratorServer orchestratorServer = orchestratorServers.get(random.nextInt(orchestratorServers.size()));
-        proxySyncService.proxySync(orchestratorServer,false);
+        proxySyncService.proxySync(orchestratorServer, false);
 
     }
 }
